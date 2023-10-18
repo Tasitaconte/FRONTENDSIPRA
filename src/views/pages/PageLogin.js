@@ -10,12 +10,12 @@ function PageLogin() {
 
     const [errores, setErrores] = useState({});
     const conectado = useSelector(estado => estado.usuario.conectado);
+
     const navegar = useNavigate();
     const enviarAccion = useDispatch();
+
     useEffect(() => {
-        if (conectado === true) {
-            navegar("/")
-        }
+        if (conectado === true) navegar("/")
     })
 
     const [visible, setVisible] = useState(true);
@@ -37,11 +37,11 @@ function PageLogin() {
     return (
 
         <div className='m-0 vh-100 row justify-content-center align-items-center '>
-         
+
             <div className='col-auto'>
                 <img className='mb-4 mx-auto d-block img-fluid' width={200} src={imagenes('./Logo_of_FESC_University.png')} />
                 {errores.ingresar &&
-                    <Alert  isOpen={visible} toggle={onDismiss} color='danger' className='' closeAriaLabel='true' >{errores.ingresar}</Alert>
+                    <Alert isOpen={visible} toggle={onDismiss} color='danger' className='' closeAriaLabel='true' >{errores.ingresar}</Alert>
                 }
                 <Card className='rounded-3 border-0 shadow' style={{ width: 450 }}>
                     <CardBody>

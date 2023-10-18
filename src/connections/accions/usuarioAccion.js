@@ -14,6 +14,7 @@ export const autenticion = (credenciales) => dispatch => {
             dispatch(usuario({ conectado: true, usuario: decodificado }))
             resolver(response)
         }).catch(err => {
+            console.log(err);
             rechazar(err)
         })
     })

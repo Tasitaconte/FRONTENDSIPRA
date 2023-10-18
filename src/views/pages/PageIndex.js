@@ -10,12 +10,12 @@ import { useEffect } from 'react';
 const PageIndex = () => {
 
 
-    const conectado = useSelector(estado => estado.conectado);
+    const conectado = useSelector(estado => estado.usuario.conectado);
     const navegar = useNavigate();
 
     useEffect(() => {
         if (conectado === false) {
-            // navegar("/login")
+            navegar("/login")
         }
     })
 

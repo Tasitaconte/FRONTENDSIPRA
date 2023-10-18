@@ -1,46 +1,77 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import {
-  cilDescription,
-  cilDrop,
-  cilPuzzle,
-} from '@coreui/icons'
+
+import { cilChevronCircleRightAlt, cilPuzzle } from '@coreui/icons'
+
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+import jwtDecode from 'jwt-decode';
 
-const sidebarnav = [
-  {
-    component: CNavTitle,
-    name: 'Herramientas Sipra',
-  },
-  // {
-  //   component: CNavItem,
-  //   name: 'Colors',
-  //   to: '/theme/colors',
-  //   icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
-  //   badge: {
-  //     color: 'info',
-  //     text: 'NEW',
-  //   }
-  // },
-  {
-    component: CNavGroup,
-    name: 'Herramientas',
-    to: '/herramientas',
-    icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Crear Usuario',
-        to: '/crear/usuario',
-      }
-    ],
-  },
-  // {
-  //   component: CNavItem,
-  //   name: 'Docs',
-  //   href: 'https://coreui.io/react/docs/templates/installation/',
-  //   icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  // },
-]
+let token = localStorage.token
 
-export default sidebarnav
+let decodificado;
+
+if (token != undefined) decodificado = jwtDecode(token);
+
+const getSideBarNav = () => {
+
+  let sidebarnav;
+
+  if (decodificado == undefined) {
+    return [];
+  }
+  
+  let rol = decodificado.rol
+  
+  switch (rol) {
+    case "1":
+      sidebarnav = [
+        {
+          component: CNavTitle,
+          name: 'Herramientas Sipra Extension',
+        },
+        {
+          component: CNavGroup,
+          name: 'Herramientas',
+          to: '/herramientas',
+          icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
+          items: [
+            {
+              component: CNavItem,
+              name: ' Crear Usuario',
+              to: '/crear/usuario',
+              icon: <CIcon icon={cilChevronCircleRightAlt} />
+            },
+          ],
+        },
+      ]
+    case 2:
+      sidebarnav = [
+        {
+          component: CNavTitle,
+          name: 'Herramientas Sipra Docente'
+        },
+        {
+          component: CNavGroup,
+          name: 'Herramientas',
+          to: '/herramientas',
+          icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
+          items: [
+            {
+              component: CNavItem,
+              name: 'Rellenar Formularios',
+              to: '/rellenar/formularios',
+              icon: <CIcon icon={cilChevronCircleRightAlt} />
+            },
+          ]
+        },
+      ]
+    default:
+      break;
+  }
+
+  return sidebarnav;
+}
+
+const sidebarnav = getSideBarNav();
+
+export default sidebarnav;

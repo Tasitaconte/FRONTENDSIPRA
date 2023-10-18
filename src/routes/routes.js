@@ -1,10 +1,11 @@
 import React from 'react'
-const PageIndex= React.lazy(()=> import('../views/pages/PageIndex'))
+const PageIndex = React.lazy(() => import('../views/pages/PageIndex'))
 const Usuario = React.lazy(() => import('../views/herramientas/crear/usuario/Usuario'))
+// const Grupo = React.lazy(() => import('../views/herramientas/asignar/grupo/Grupo'))
 
 const routes = [
-  { path: '/', exact: true, name: 'Inicio', element: PageIndex},
-  { path: '/crear/usuario', name: 'Usuario', element: Usuario }
+  { path: '/', exact: true, name: 'Inicio', element: PageIndex },
+  { path: '/crear/usuario', name: 'Usuario', element: Usuario },
 ]
 
 export default routes
