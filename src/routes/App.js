@@ -11,7 +11,6 @@ getAutenticacionToken();
 
 const DefaultLayout = React.lazy(() => import('../layout/DefaultLayout'))
 
-
 const loading = (
   <div className="pt-3 text-center">
     <div className="sk-spinner sk-spinner-pulse"></div>

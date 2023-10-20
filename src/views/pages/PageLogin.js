@@ -15,7 +15,7 @@ function PageLogin() {
     const enviarAccion = useDispatch();
 
     useEffect(() => {
-        if (conectado === true) navegar("/")
+        if (conectado == true) { navegar("/") }
     })
 
     const [visible, setVisible] = useState(true);

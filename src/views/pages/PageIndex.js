@@ -15,7 +15,7 @@ const PageIndex = () => {
 
     useEffect(() => {
         if (conectado === false) {
-            navegar("/login")
+            return navegar("/login")
         }
     })
 
@@ -25,7 +25,6 @@ const PageIndex = () => {
                 <CCol sm="12" md="8" lg="6">
                     <h3 className="text-center">BIENVENIDO</h3>
                     <p>Sipra es un software para la gestion de estudiantes en practicas empresariales</p>
-
                 </CCol>
             </CRow>
         </CContainer >

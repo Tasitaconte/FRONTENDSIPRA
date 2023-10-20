@@ -21,7 +21,7 @@ const getSideBarNav = () => {
   }
   
   let rol = decodificado.rol
-  
+  console.log(rol);
   switch (rol) {
     case "1":
       sidebarnav = [
@@ -44,7 +44,8 @@ const getSideBarNav = () => {
           ],
         },
       ]
-    case 2:
+      break;
+    case "2":
       sidebarnav = [
         {
           component: CNavTitle,
@@ -59,12 +60,13 @@ const getSideBarNav = () => {
             {
               component: CNavItem,
               name: 'Rellenar Formularios',
-              to: '/rellenar/formularios',
+              to: '/cargar/formularios',
               icon: <CIcon icon={cilChevronCircleRightAlt} />
             },
           ]
         },
       ]
+      break;
     default:
       break;
   }
