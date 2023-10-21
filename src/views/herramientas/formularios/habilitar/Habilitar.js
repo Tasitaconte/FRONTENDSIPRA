@@ -35,9 +35,9 @@ const Habilitar = () => {
       return navegar("/login")
     }
 
-    // if (usuario.rol) {
-    //   navegar("/")
-    // }
+    if (usuario.rol != 2) {
+      navegar("/")
+    }
   })
 
   return (
