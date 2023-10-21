@@ -13,7 +13,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { FormularioIniciacionPracticas } from '../../../../components/Formularios/FormularioCargaFormularios';
+import { FormularioCargaFormularios } from '../../../../components/Formularios/FormularioCargaFormularios';
 
 const Formularios = () => {
 
@@ -36,9 +36,9 @@ const Formularios = () => {
       return navegar("/login")
     }
 
-    // if (usuario.rol) {
-    //   navegar("/")
-    // }
+    if (usuario.rol != 3) {
+      navegar("/")
+    }
   })
 
   return (
@@ -49,9 +49,9 @@ const Formularios = () => {
             <strong>Cargar Formularios Rellenados</strong>
           </CCardHeader>
           <CCardBody>
-            <FormularioIniciacionPracticas errores={errorCreacionDocente} callback={{}} cargado={false} nombre_formulario="Formulario F12" />
+            <FormularioCargaFormularios errores={errorCreacionDocente} callback={{}} cargado={false} nombre_formulario="Formulario F12" />
 
-            <FormularioIniciacionPracticas errores={errorCreacionDocente} callback={{}} cargado={true} nombre_formulario="Segundo Formulario" />
+            <FormularioCargaFormularios errores={errorCreacionDocente} callback={{}} cargado={true} nombre_formulario="Segundo Formulario" />
           </CCardBody>
         </CCard>
       </CCol>

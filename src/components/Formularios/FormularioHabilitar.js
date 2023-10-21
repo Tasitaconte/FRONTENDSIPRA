@@ -4,13 +4,14 @@ import { ArrowUpCircle, Check, Check2Circle, CheckCircle, Circle, Icon1CircleFil
 import { Button, CardBody, Form, FormGroup, Input, Label } from 'reactstrap';
 
 
-function FormularioCargaFormularios({ errores, callback, nombre_formulario, cargado }) {
+function FormularioHabilitar({ errores, callback, nombre_formulario, habilitado }) {
 
     const [nombre_empresa, setNombreEmpresa] = useState();
     const [correo, setCorreo] = useState();
     const [representante_legal, setRepresentanteLegal] = useState();
     const [nit, setNit] = useState();
     const [modalVisible, setModalVisible] = useState(false)
+
 
     const sendForm = (e) => {
         e.preventDefault();
@@ -25,15 +26,10 @@ function FormularioCargaFormularios({ errores, callback, nombre_formulario, carg
                 <CCard>
                     <CCardHeader>{nombre_formulario}</CCardHeader>
                     <CCardBody>
-                        {cargado ? (
-                            <h3>Formulario Cargado</h3>
+                        {habilitado ? (
+                            <Button type="submit" color='success'>Activado</Button>
                         ) : (
-                            <>
-                                <CInputGroup>
-                                    <CFormInput type="file" id="formFile" placeholder="Default file input example" />
-                                    <Button type="submit" color='success'><ArrowUpCircle></ArrowUpCircle></Button>
-                                </CInputGroup>
-                            </>
+                            <Button type="submit" color='warning'>Desactivado</Button>
                         )}
                     </CCardBody>
                 </CCard>
@@ -49,7 +45,7 @@ function FormularioCargaFormularios({ errores, callback, nombre_formulario, carg
                     <CModalTitle id="VerticallyCenteredExample">Modal Confirmacion</CModalTitle>
                 </CModalHeader>
                 <CModalBody>
-                  FORMULARIO CARGADO CORRECTAMENTE
+                  FORMULARIO ACTIVADO
                 </CModalBody>
                 <CModalFooter>
                     <CButton color="primary" onClick={() => setModalVisible(false)}>ACEPTAR</CButton>
@@ -59,4 +55,4 @@ function FormularioCargaFormularios({ errores, callback, nombre_formulario, carg
     );
 }
 
-export { FormularioCargaFormularios };
+export { FormularioHabilitar };

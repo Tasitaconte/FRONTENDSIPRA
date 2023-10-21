@@ -13,8 +13,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { FormularioIniciacionPracticas } from '../../../../components/Formularios/FormularioCargaFormularios';
-
+import { FormularioHabilitar } from '../../../../components/Formularios/FormularioHabilitar';
 const Habilitar = () => {
 
   const usuario = useSelector(estado => estado.usuario.usuario);
@@ -46,12 +45,12 @@ const Habilitar = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Cargar Formularios Rellenados</strong>
+            <strong>Habilitar formularios para estudaintes practicas</strong>
           </CCardHeader>
           <CCardBody>
-            <FormularioIniciacionPracticas errores={errorCreacionDocente} callback={{}} cargado={false} nombre_formulario="Formulario F12" />
+            <FormularioHabilitar errores={errorCreacionDocente} callback={{}} habilitado={false} nombre_formulario="Formulario F12" />
 
-            <FormularioIniciacionPracticas errores={errorCreacionDocente} callback={{}} cargado={true} nombre_formulario="Segundo Formulario" />
+            <FormularioHabilitar errores={errorCreacionDocente} callback={{}} habilitado={true} nombre_formulario="Segundo Formulario" />
           </CCardBody>
         </CCard>
       </CCol>

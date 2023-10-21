@@ -19,7 +19,7 @@ const getSideBarNav = () => {
   if (decodificado == undefined) {
     return [];
   }
-  
+
   let rol = decodificado.rol
   console.log(rol);
   switch (rol) {
@@ -46,6 +46,28 @@ const getSideBarNav = () => {
       ]
       break;
     case "2":
+      sidebarnav = [
+        {
+          component: CNavTitle,
+          name: 'Herramientas Sipra Docente'
+        },
+        {
+          component: CNavGroup,
+          name: 'Herramientas',
+          to: '/herramientas',
+          icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
+          items: [
+            {
+              component: CNavItem,
+              name: 'Habilitar Formularios',
+              to: '/formularios/habilitar',
+              icon: <CIcon icon={cilChevronCircleRightAlt} />
+            },
+          ]
+        },
+      ]
+      break;
+    case "3":
       sidebarnav = [
         {
           component: CNavTitle,
