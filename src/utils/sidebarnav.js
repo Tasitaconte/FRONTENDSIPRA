@@ -41,6 +41,12 @@ const getSideBarNav = () => {
               to: '/crear/usuario',
               icon: <CIcon icon={cilChevronCircleRightAlt} />
             },
+            {
+              component: CNavItem,
+              name: 'Cargar Formulario',
+              to: '/agregar/formulario',
+              icon: <CIcon icon={cilChevronCircleRightAlt} />
+            },
           ],
         },
       ]

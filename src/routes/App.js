@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { store } from '../states/store'
 import { PageLogin } from '../views/pages/PageLogin';
 import { getAutenticacionToken } from '../connections/helpers/token';
+import FormularioAgregar from '../views/herramientas/agregar/formulario/FormularioAgregar';
 
 getAutenticacionToken();
 
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path="*" name="Home" element={<DefaultLayout />} />
             <Route path="/login" name="Login" element={<PageLogin />} />
+            <Route path="/agregar" name="Agregar" element={<FormularioAgregar />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

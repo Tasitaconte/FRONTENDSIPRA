@@ -16,11 +16,11 @@ function FormularioInicioSesion({ errores, callback }) {
         <Form onSubmit={sendForm}>
             <FormGroup >
                 <Label for="correo">Correo electrónico</Label>
-                <Input onChange={e => setCorreo(e.target.value)} id='correo' name='correo' type='email' required></Input>
+                <Input onChange={e => setCorreo(e.target.value)} autoComplete='username' type='email' required></Input>
             </FormGroup>
             <FormGroup >
                 <Label for="password">Contraseña</Label>
-                <Input onChange={e => setContraseña(e.target.value)} id='password' name='password' type='password' required></Input>
+                <Input onChange={e => setContraseña(e.target.value)} type='password' autoComplete='current-password' required></Input>
             </FormGroup>
             <div className='d-flex justify-content-end'>
                 <button type='submit' className='btn btn-dark btn-block ' >Iniciar Sesión</button>

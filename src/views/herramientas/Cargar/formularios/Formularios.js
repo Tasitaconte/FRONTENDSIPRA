@@ -21,9 +21,6 @@ const Formularios = () => {
   const navegar = useNavigate();
   // const enviarAccion = useDispatch();
   const conectado = useSelector(estado => estado.usuario.conectado);
-
-
-
   const [errorCreacionDocente, setErrorCreacionDocente] = useState({});
   // const [errorCreacionEstudiante, setErrorCreacionEstudiante] = useState({});
   const [visible, setVisible] = useState(true);
@@ -49,6 +46,7 @@ const Formularios = () => {
             <strong>Cargar Formularios Rellenados</strong>
           </CCardHeader>
           <CCardBody>
+           
             <FormularioCargaFormularios errores={errorCreacionDocente} callback={{}} cargado={false} nombre_formulario="Formulario F12" />
 
             <FormularioCargaFormularios errores={errorCreacionDocente} callback={{}} cargado={true} nombre_formulario="Segundo Formulario" />
